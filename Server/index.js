@@ -27,10 +27,17 @@ db.connect( (err) => {
 });
 
 // Basic response
-app.get('/', (req, res) => {
-  res.json({
-    message : 'Hello World! \u{2764}'
+app.get('/query', (req, res) => {
+  db.query("SELECT * FROM trago", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+
+    res.json({
+      msg : 'Hello World! \u{2764}',
+      tragoCero : result[0].nombre
+    });
   });
+
 });
 
 
