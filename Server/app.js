@@ -6,8 +6,10 @@ const app = express();
 app.use(express.json());
 app.use(express.static('./public'))
 
-app.listen('3000', () =>{
-  console.log('Server listening on port 3000');
+
+let port = 3000;
+app.listen(port, 'localhost', () =>{
+  console.log('Server listening on port ' + port.toString());
 })
 
 // Create connection ( port 3306 )

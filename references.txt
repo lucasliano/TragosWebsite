@@ -1,0 +1,6 @@
+Animaciones de slide o Fade: https://www.w3schools.com/jquery/jquery_events.asp
+Borrar todos los elementos de un div (empty): https://www.w3schools.com/jquery/jquery_dom_remove.asp
+Dynamic Grids: https://getuikit.com/v2/docs/grid-js.html
+AJAX para DB: https://www.w3schools.com/jquery/jquery_ajax_load.asp
+Alertas bootstrap: https://getbootstrap.com/docs/5.0/components/alerts/
+Progress bar (para cuando se cargan las query): https://getbootstrap.com/2.2.0/components.html#progress
