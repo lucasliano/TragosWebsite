@@ -4,11 +4,11 @@ const mysql = require('mysql');
 // Create express application
 const app = express();
 app.use(express.json());
-app.use(express.static('./public'))
+app.use(express.static('./public'));
 
 
 let port = 3000;
-app.listen(port, 'localhost', () =>{
+app.listen(port, '0.0.0.0', () =>{  // Permitis que cualquiera se conecte con 0.0.0.0
   console.log('Server listening on port ' + port.toString());
 })
 

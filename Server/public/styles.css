@@ -53,10 +53,14 @@ main {
 }
 
 
+
 /* Small screens */
 @media only screen and (max-width: 600px) {
   main{
     margin-left: 5rem;  /* 1rem = 1 * :root.font-size = 16px */
+  }
+  .card-columns {
+    column-count: 1;
   }
 }
 
@@ -64,5 +68,8 @@ main {
 @media only screen and (min-width: 600px) {
   main {
     margin-left: 6rem;  /* 1rem = 1 * :root.font-size = 16px */
+  }
+  .card-columns {
+    column-count: 4;
   }
 }

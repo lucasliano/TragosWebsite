@@ -3,6 +3,7 @@
   /* background-color: var(--bg-primary); */
   background-color: transparent;
   transition: width 600ms ease;
+  z-index: 1;
   /*overflow: auto; */
 }
 
