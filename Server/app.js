@@ -4,6 +4,7 @@ const mysql = require('mysql');
 // Create express application
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.static('./public'));
 
 
@@ -39,7 +40,25 @@ app.get('/query', (req, res) => {
       tragoCero : result[0].nombre
     });
   });
+});
 
+
+// Elaborated response to query with post method
+app.post('/query', function (req, res) {
+  db.query(req.body.msg, function (err, result, fields) {
+    if (err) {
+      res.send(err.sqlMessage);
+    } else {
+
+      console.log(JSON.stringify(result));
+
+      res.json({
+        msg : 'Hello World! \u{2764}',
+        data : result
+      });
+
+    }
+  });
 });
 
 
