@@ -29,19 +29,6 @@ db.connect( (err) => {
   console.log('MySql connected \u{1F601}');
 });
 
-// Basic response
-// app.get('/query', (req, res) => {
-//   db.query("SELECT * FROM trago", function (err, result, fields) {
-//     if (err) throw err;
-//     console.log(result);
-//
-//     res.json({
-//       msg : 'Hello World! \u{2764}',
-//       tragoCero : result[0].nombre
-//     });
-//   });
-// });
-
 
 // Elaborated response to query with post method
 app.post('/query', function (req, res) {
@@ -61,7 +48,7 @@ app.post('/query', function (req, res) {
 app.post('/ordenar', function (req, res) {
   var nombre = req.body.nombre;
   var trago =  req.body.trago;
-  if(!nombre && !trago){
+  if(!nombre || !trago){
     res.json({
       msg : 'Su pedido falló! \u{2620}'
     });
@@ -80,23 +67,3 @@ app.post('/ordenar', function (req, res) {
     });
   }
 });
-
-// // Create DB
-// app.get('/createdb', (req, res) => {
-//   let sql = 'CREATE DATABASE tragosdb';
-//   db.query(sql, (err, result) => {
-//     if(err) throw err;
-//     res.send('Database created!');
-//     console.log(result);
-//   });
-// });
-//
-// // Delete DB
-// app.get('/deletedb', (req, res) => {
-//   let sql = 'DROP DATABASE tragosdb';
-//   db.query(sql, (err, result) => {
-//     if(err) throw err;
-//     res.send('Database deleted!');
-//     console.log(result);
-//   });
-// });
