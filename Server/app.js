@@ -50,7 +50,6 @@ app.post('/query', function (req, res) {
       res.send(err.sqlMessage);
     } else {
       res.json({
-        msg : 'Hello World! \u{2764}',
         data : result
       });
 
@@ -58,6 +57,29 @@ app.post('/query', function (req, res) {
   });
 });
 
+
+app.post('/ordenar', function (req, res) {
+  var nombre = req.body.nombre;
+  var trago =  req.body.trago;
+  if(!nombre && !trago){
+    res.json({
+      msg : 'Su pedido falló! \u{2620}'
+    });
+  }else{
+    let sql = 'INSERT INTO pedido VALUES (0, "'+ trago +'", "'+nombre+'")';
+    db.query(sql, function (err, result, fields) {
+      if (!err) {
+        res.json({
+          msg : 'Su pedido se realizó correctamente! \u{2764}'
+        });
+      }else{
+        res.json({
+          msg : 'Su pedido falló! \u{2620}'
+        });
+      }
+    });
+  }
+});
 
 // // Create DB
 // app.get('/createdb', (req, res) => {

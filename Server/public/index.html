@@ -51,7 +51,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="" class="nav-link">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -172,11 +172,42 @@
   <main>
     <div class="container-fluid">
       <h2>Hello World &#x1F43B;&#x200D;&#x2744;&#xFE0F;</h2>
-      <div id="MainCardColumns" class="card-columns" style="color: black;">
-
-
+      <div id="MainCardColumns" class="card-columns" style="color: black;"></div>
 
     </div>
+
+    <div id="container-modal">
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: black;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Realizar Pedido</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Trago:</label>
+                  <input type="text" class="form-control" id="txtbox-trago">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Complete su nombre:</label>
+                  <textarea class="form-control" id="txtbox-nombre"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button id="btn-ordenar" type="button" class="btn btn-primary">Ordenar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
 
   </main>
 

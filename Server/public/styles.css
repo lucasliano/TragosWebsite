@@ -52,7 +52,13 @@ main {
   transition: var(--transition-speed);
 }
 
+.card{
+  border-radius: 1rem;
+}
 
+.card img{
+  border-radius: 1rem;
+}
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
@@ -62,6 +68,10 @@ main {
   .card-columns {
     column-count: 1;
   }
+
+  .fav{
+    max-width: 3rem;
+  }
 }
 
 /* Large screens */
@@ -70,6 +80,10 @@ main {
     margin-left: 6rem;  /* 1rem = 1 * :root.font-size = 16px */
   }
   .card-columns {
-    column-count: 4;
+    column-count: 3;
+  }
+
+  .fav{
+    max-width: 4rem;
   }
 }
