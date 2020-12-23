@@ -53,11 +53,33 @@ app.post('/ordenar', function (req, res) {
       msg : 'Su pedido falló! \u{2620}'
     });
   }else{
-    let sql = 'INSERT INTO pedido VALUES (0, "'+ trago +'", "'+nombre+'")';
+    let sql = 'INSERT INTO pedido VALUES (0, "'+ trago +'", "'+nombre+'", false)';
     db.query(sql, function (err, result, fields) {
       if (!err) {
         res.json({
           msg : 'Su pedido se realizó correctamente! \u{2764}'
+        });
+      }else{
+        res.json({
+          msg : 'Su pedido falló! \u{2620}'
+        });
+      }
+    });
+  }
+});
+
+app.post('/pedido', function (req, res) {
+  var id = req.body.idPedido;
+  if(!id){
+    res.json({
+      msg : 'Debe seleccionar al menos un elemento \u{1F47F}'
+    });
+  }else{
+    let sql = 'UPDATE pedido SET terminado=true WHERE idPedido='+id+';'
+    db.query(sql, function (err, result, fields) {
+      if (!err) {
+        res.json({
+          msg : 'Se ha actualizado correctamente! \u{1F95D}'
         });
       }else{
         res.json({

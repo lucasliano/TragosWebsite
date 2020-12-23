@@ -21,6 +21,7 @@ CREATE TABLE pedido (
 	idPedido MEDIUMINT NOT NULL AUTO_INCREMENT,
     nombreTrago VARCHAR(60),
     nombrePersona VARCHAR(60),
+    terminado BOOLEAN,
     PRIMARY KEY (idPedido)
     );
 
@@ -61,8 +62,9 @@ INSERT INTO trago VALUES (0, "Vinoide", "Trago tropical que contiene jugo", fals
 
 SELECT * FROM trago;
 
-INSERT INTO pedido VALUES (0, "Mojito", "Juan" );
+INSERT INTO pedido VALUES (0, "Mojito", "Juan", true );
 SELECT * FROM pedido;
+SELECT * FROM pedido WHERE terminado = false;
 DELETE FROM pedido WHERE idPedido = 1;
 drop table pedido;
 
