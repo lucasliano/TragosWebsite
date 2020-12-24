@@ -23,7 +23,7 @@ $(document).ready(function(){
 function addElement(sql){
   queryDB(sql, function (res) {
     for (var i = 0; i < res.data.length; i++){
-      appendCard(res.data[i].id , res.data[i].nombre, res.data[i].texto, res.data[i].recomendado);
+      appendCard(res.data[i].id , res.data[i].nombre, res.data[i].texto, res.data[i].ingredientes, res.data[i].recomendado);
     }
 
   });
@@ -41,7 +41,7 @@ function updateContainer(id){
   addElement(sql);
 }
 
-function appendCard(id, name, description, classRecomendation) {
+function appendCard(id, name, description, ingredients,classRecomendation) {
   if (id != null){
     var isCat = ((classRecomendation == undefined) ? true : false); // Si no tiene categoria classRecomendation, es una categoria.
 
@@ -51,9 +51,12 @@ function appendCard(id, name, description, classRecomendation) {
 
     if (!isCat){
       classRecomendationText = ((classRecomendation) ? "bg-warning" : "");
-      hasDescription =  '<div class="d-flex">'+
-                          '<p class="card-text">'+ description +'</p>'+
-                        '</div>';
+      if(description != null){
+        hasDescription =  '<div class="d-flex">'+
+                            '<i><u>'+ description +'</u></i>'+
+                          '</div>'+
+                          '<span class="card-text" style="font-size: 0.75rem; white-space: pre-line">'+ ingredients +'</span>';
+      }
       hasRecomendation =  '<div class="d-flex ml-auto">'+
                             ((classRecomendation) ? '<div class="ml-auto p-2"> <img class="fav" src="img/fav.png"> </img></div>' : '') +
                           '</div>';
@@ -66,7 +69,7 @@ function appendCard(id, name, description, classRecomendation) {
                   '<div class="card-body d-flex">'+
                     '<div class="d-flex flex-column">'+
                       '<h4 class="card-title">'+ name +'</h4>'+
-                      hasDescription +
+                      hasDescription+
                     '</div>'+
                     hasRecomendation +
                     '<a id="card-'+ id +'" href="#" class="stretched-link" '+ ((!isCat) ? 'data-toggle="modal" data-target="#exampleModal" data-nombre="'+ name +'" ' : '') + '> </a>'+
