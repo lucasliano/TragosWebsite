@@ -13,10 +13,10 @@ app.listen(port, '0.0.0.0', () =>{  // Permitis que cualquiera se conecte con 0.
   console.log('Server listening on port ' + port.toString());
 })
 
-// Create connection ( port 3306 )
+// Create connection ( port )
 const db = mysql.createConnection({
   host     : 'localhost',
-  user     : 'root',
+  user     : 'admin',
   password : 'admin',
   database : 'tragosdb'
 });
@@ -24,9 +24,10 @@ const db = mysql.createConnection({
 // Connect db
 db.connect( (err) => {
   if(err){
-    console.log('Error while trying to connect. Database already exists.');
+    console.log('Error while trying to connect.');
+  }else{
+    console.log('MySql connected \u{1F601}');
   }
-  console.log('MySql connected \u{1F601}');
 });
 
 
